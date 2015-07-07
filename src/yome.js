@@ -75,3 +75,19 @@ Yome.clearPlayArea = () =>
 // Yome.playArea(Yome.drawWalls({sides: [1,2,3,4,5,6,7,8]}))
 
 // Yome.clearPlayArea()
+
+Yome.windowPoints = (st) => {
+  const theta = Yome.sliceTheta(st),
+        indent = theta / 6;
+  return [Yome.radialPoint(160, indent),
+          Yome.radialPoint(160, theta - indent),
+          Yome.radialPoint(100, theta / 2)];
+}
+// l(Yome.windowPoints(Yome.initialState()))
+
+Yome.drawWindow = (st) =>
+  <polygon points={ Yome.pointsToPointsString(Yome.windowPoints(st)) }>
+  </polygon>
+
+// Yome.playArea(<g>{Yome.drawWindow(Yome.initialState())}
+//                  {Yome.drawWalls(Yome.initialState())}</g>)
