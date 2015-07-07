@@ -107,3 +107,23 @@ Yome.drawDoor = (st) =>
 // Yome.playArea(<g>{Yome.drawDoor(Yome.state) }
                  // {Yome.drawWindow(Yome.state) }
                  // {Yome.drawWalls(Yome.state) }</g>)
+
+Yome.drawLine = (line) =>
+  <line x1={line.start.x} y1={line.start.y}
+        x2={line.end.x} y2={line.end.y}>
+  </line>
+
+Yome.drawZipDoor = (st) => {
+  const theta   = Yome.sliceTheta(st),
+        indent  = 0.15 * (theta / 6),
+        lines   = [0,1,2,3,4,5,6,7,8].map( (x) => {
+          const dist = 170 - (10 * x);
+          return {start: Yome.radialPoint(dist, -indent),
+                  end:   Yome.radialPoint(dist,  indent)}});
+  lines.push({start: Yome.radialPoint(180, 0),
+              end:   Yome.radialPoint(90, 0)});
+  return <g>{lines.map(Yome.drawLine)}</g>;
+}
+
+// Yome.playArea(<g>{Yome.drawZipDoor(Yome.state)}
+//                  {Yome.drawWalls(Yome.state)}</g>)
