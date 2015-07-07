@@ -16,3 +16,15 @@ Reloader.startReloading = (files) => {
 
 Reloader.startReloading(["build/yome.js"])
 
+// -----------------------------------------------------------------------------
+
+function l (x) { console.log(x); return x; }
+
+var Yome = Yome || {};
+
+Yome.initialState = () => {
+    return { sides: [1,2,3,4,5,6,7,8].map( () => new Object() )}
+}
+
+Yome.state = Yome.state || Yome.initialState();
+//l(Yome.state)
