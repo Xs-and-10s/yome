@@ -36,12 +36,12 @@ Yome.sliceTheta = (st) => 2 * Math.PI / Yome.sideCount(st)
 // l(Yome.sliceTheta(Yome.state))
 
 Yome.rotate = (theta, point) => {
-    const sint = Math.sin(theta), cost = Math.cos(theta);
-    return { x: (point.x * cost) - (point.y * sint),
-             y: (point.x * sint) + (point.y * cost) };
+  const sint = Math.sin(theta), cost = Math.cos(theta);
+  return { x: (point.x * cost) - (point.y * sint),
+           y: (point.x * sint) + (point.y * cost) };
 }
 // l(Yome.rotate(Math.PI, {x: 0, y: 1}));
 
 Yome.radialPoint = (radius, theta) =>
-    Yome.rotate(theta, {x: 0, y: radius})
+  Yome.rotate(theta, {x: 0, y: radius})
 // l(Yome.radialPoint(100, Math.PI));
