@@ -185,6 +185,10 @@ Yome.drawYome = (st) =>
 // Yome.playArea(Yome.drawYome(Yome.exampleData))
 // Yome.clearPlayArea()
 
+// side effecting
+Yome.eventHandler = (f) =>
+  (e => {e.preventDefault(); f(e.target.value); Yome.render()})
+
 // --- Add new code above this line ---
 
 Yome.widget = (st) =>
