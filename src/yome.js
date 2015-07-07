@@ -137,3 +137,27 @@ Yome.drawStoveVent = (st) => {
 
 // Yome.playArea(<g>{Yome.drawStoveVent(Yome.state)}
 //                  {Yome.drawWalls(Yome.state)}</g>)
+
+Yome.itemRenderDispatch = {
+  "window"     : Yome.drawWindow,
+  "door-frame" : Yome.drawDoor,
+  "zip-door"   : Yome.drawZipDoor,
+  "stove-vent" : Yome.drawStoveVent
+}
+
+Yome.itemRender = (type, st) =>
+  (Yome.itemRenderDispatch[type] || (x => null))(st)
+
+Yome.itemRenderDispatch["__default"] = (_) => null
+
+Yome.exampleData = ( (state) => {
+  state.sides[0].face = "window"
+  state.sides[0].corner = "zip-door"
+  state.sides[3].face = "window"
+  state.sides[5].corner = "door-frame"
+  state.sides[5].face = "window"
+  state.sides[7].corner = "stove-vent"
+  return state
+})(Yome.initialState())
+
+// l(JSON.stringify(Yome.exampleData))
