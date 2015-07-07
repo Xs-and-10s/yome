@@ -45,3 +45,7 @@ Yome.rotate = (theta, point) => {
 Yome.radialPoint = (radius, theta) =>
   Yome.rotate(theta, {x: 0, y: radius})
 // l(Yome.radialPoint(100, Math.PI));
+
+Yome.sidePoints = (st) =>
+  st.sides.map((_,i) => Yome.radialPoint(180, i * Yome.sliceTheta(st)))
+// l(Yome.sidePoints(Yome.initialState()))
