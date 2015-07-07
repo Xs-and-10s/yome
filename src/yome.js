@@ -216,6 +216,7 @@ Yome.sideCountInput = st =>
 
 Yome.widget = (st) =>
   <div className="yome-widget">
+    { Yome.sideCountInput(st) }
     <div className="yome-widget-body">
       { Yome.svgWorld(Yome.drawYome(st)) }
     </div>
