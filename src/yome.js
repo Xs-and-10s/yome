@@ -189,6 +189,29 @@ Yome.drawYome = (st) =>
 Yome.eventHandler = (f) =>
   (e => {e.preventDefault(); f(e.target.value); Yome.render()})
 
+Yome.changeSideCount = (new_count) => {
+  let nArray = Array.apply(null, Array(parseInt(new_count)));
+  Yome.state.sides = nArray.map( (_, i) => Yome.state.sides[i] || {});
+}
+// Yome.changeSideCount(6)
+// Yome.changeSideCount(7)
+// Yome.changeSideCount(8)
+
+Yome.sideOptions = () =>
+  ["HexaYome", "SeptaYome", "OctaYome"].map(
+    (l, v) => <option value={v + 6}>{l}</option>)
+
+Yome.sideCountInput = st =>
+  <div className="top-control">
+    <span> Size of Yome </span>
+    <select onChange={ Yome.eventHandler(Yome.changeSideCount) }
+            value={ Yome.sideCount(st) }>
+      { Yome.sideOptions() }
+    </select>
+  </div>
+// React.render(Yome.sideCountInput(Yome.state),
+//              document.getElementById("playarea"))
+
 // --- Add new code above this line ---
 
 Yome.widget = (st) =>
