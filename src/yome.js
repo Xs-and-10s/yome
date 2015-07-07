@@ -57,3 +57,21 @@ Yome.pointsToPointsString = (points) =>
 Yome.drawWalls = (state) =>
   <polygon points={Yome.pointsToPointsString(Yome.sidePoints(state))}>
   </polygon>
+
+Yome.svgWorld = (children) =>
+  <svg height="500" width="500" viewBox="-250 -250 500 500"
+       preserveAscpectRatio="xMidYMid meet">
+    {children}
+  </svg>
+
+Yome.playArea = (children) =>
+  React.render(Yome.svgWorld(children), document.getElementById("playarea"))
+
+Yome.clearPlayArea = () =>
+  React.unmountComponentAtNode(document.getElementById("playarea"))
+
+// Yome.playArea(Yome.drawWalls({sides: [1,2,3,4,5,6]}))
+// Yome.playArea(Yome.drawWalls({sides: [1,2,3,4,5,6,7]}))
+// Yome.playArea(Yome.drawWalls({sides: [1,2,3,4,5,6,7,8]}))
+
+// Yome.clearPlayArea()
