@@ -53,3 +53,7 @@ Yome.sidePoints = (st) =>
 Yome.pointsToPointsString = (points) =>
   points.map(p => p.x + "," + p.y).join(" ")
 // l(Yome.pointsToPointsString(Yome.sidePoints(Yome.initialState())))
+
+Yome.drawWalls = (state) =>
+  <polygon points={Yome.pointsToPointsString(Yome.sidePoints(state))}>
+  </polygon>
