@@ -184,3 +184,17 @@ Yome.drawYome = (st) =>
 
 // Yome.playArea(Yome.drawYome(Yome.exampleData))
 // Yome.clearPlayArea()
+
+// --- Add new code above this line ---
+
+Yome.widget = (st) =>
+  <div className="yome-widget">
+    <div className="yome-widget-body">
+      { Yome.svgWorld(Yome.drawYome(st)) }
+    </div>
+  </div>
+
+Yome.render = () =>
+  React.render(Yome.widget(Yome.state), document.getElementById('app'))
+
+Yome.render();
