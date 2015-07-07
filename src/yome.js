@@ -91,3 +91,19 @@ Yome.drawWindow = (st) =>
 
 // Yome.playArea(<g>{Yome.drawWindow(Yome.initialState())}
 //                  {Yome.drawWalls(Yome.initialState())}</g>)
+
+Yome.doorPoints = (st) => {
+  const indent = Yome.sliceTheta(st) / 8;
+  return [Yome.radialPoint(165,  indent),
+          Yome.radialPoint(165, -indent),
+          Yome.radialPoint(90,  -indent),
+          Yome.radialPoint(90,   indent)];
+}
+
+Yome.drawDoor = (st) =>
+  <polygon points={ Yome.pointsToPointsString(Yome.doorPoints(st)) }>
+  </polygon>
+
+// Yome.playArea(<g>{Yome.drawDoor(Yome.state) }
+                 // {Yome.drawWindow(Yome.state) }
+                 // {Yome.drawWalls(Yome.state) }</g>)
