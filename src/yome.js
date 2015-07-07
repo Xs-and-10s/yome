@@ -49,3 +49,7 @@ Yome.radialPoint = (radius, theta) =>
 Yome.sidePoints = (st) =>
   st.sides.map((_,i) => Yome.radialPoint(180, i * Yome.sliceTheta(st)))
 // l(Yome.sidePoints(Yome.initialState()))
+
+Yome.pointsToPointsString = (points) =>
+  points.map(p => p.x + "," + p.y).join(" ")
+// l(Yome.pointsToPointsString(Yome.sidePoints(Yome.initialState())))
