@@ -175,3 +175,12 @@ Yome.sideSlice = (st, i) => {
 
 // Yome.playArea(Yome.sideSlice(Yome.exampleData, 5))
 // Yome.playArea(Yome.sideSlice(Yome.exampleData, 0))
+
+Yome.drawYome = (st) =>
+  <g transform={ "rotate(" + (Yome.sliceDeg(st) / 2) + ",0,0)" }>
+    { Yome.drawWalls(st) }
+    { st.sides.map( (side, i) => Yome.sideSlice(st, i)) }
+  </g>
+
+// Yome.playArea(Yome.drawYome(Yome.exampleData))
+// Yome.clearPlayArea()
