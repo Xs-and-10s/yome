@@ -161,3 +161,17 @@ Yome.exampleData = ( (state) => {
 })(Yome.initialState())
 
 // l(JSON.stringify(Yome.exampleData))
+
+Yome.sliceDeg = (st) => 360 / Yome.sideCount(st)
+
+Yome.sideSlice = (st, i) => {
+  const side = st.sides[i];
+  if(side.corner || side.face)
+    return <g transform={ "rotate(" + (Yome.sliceDeg(st) * i) + ",0,0)" }>
+      {Yome.itemRender(side.corner, st)}
+      {Yome.itemRender(side.face,   st)}
+    </g>
+}
+
+// Yome.playArea(Yome.sideSlice(Yome.exampleData, 5))
+// Yome.playArea(Yome.sideSlice(Yome.exampleData, 0))
