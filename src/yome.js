@@ -212,12 +212,40 @@ Yome.sideCountInput = st =>
 // React.render(Yome.sideCountInput(Yome.state),
 //              document.getElementById("playarea"))
 
+Yome.worldPosition = (point) => ({ x: point.x + 250, y: point.y + 250 })
+
+Yome.addRemoveWindow = (i) =>
+  (_) => {
+    const side = Yome.state.sides[i];
+    side.face = (!side.face ? "window" : null);
+  }
+
+Yome.windowControl = (st, side, i) => {
+  let theta = Yome.sliceTheta(st) * (i + 1),
+      pos   = Yome.worldPosition(Yome.radialPoint(200, theta)),
+      add   = !side.face;
+  return <div className="control-holder"
+              style={ {  top: pos.y,
+                        left: pos.x } }>
+           <a className={ "window-control-offset " +
+                          (add ? "add" : "remove")}
+              onClick={ Yome.eventHandler(Yome.addRemoveWindow(i)) }
+              href="#">
+              { add ? "+ window" : "- window" }
+           </a>
+         </div>
+}
+
+Yome.windowControls = (st) =>
+  st.sides.map( (side, i) => Yome.windowControl(st, side, i))
+
 // --- Add new code above this line ---
 
 Yome.widget = (st) =>
   <div className="yome-widget">
     { Yome.sideCountInput(st) }
     <div className="yome-widget-body">
+      { Yome.windowControls(st) }
       { Yome.svgWorld(Yome.drawYome(st)) }
     </div>
   </div>
