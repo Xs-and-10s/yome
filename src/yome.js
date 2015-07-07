@@ -28,3 +28,7 @@ Yome.initialState = () => {
 
 Yome.state = Yome.state || Yome.initialState();
 //l(Yome.state)
+
+Yome.sideCount = (st) => st.sides.length
+//l(Yome.sideCount(Yome.state))
+
