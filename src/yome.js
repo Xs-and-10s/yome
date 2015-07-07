@@ -127,3 +127,13 @@ Yome.drawZipDoor = (st) => {
 
 // Yome.playArea(<g>{Yome.drawZipDoor(Yome.state)}
 //                  {Yome.drawWalls(Yome.state)}</g>)
+
+Yome.drawStoveVent = (st) => {
+  const theta = Yome.sliceTheta(st),
+        point = Yome.radialPoint(155, 0);
+  return <ellipse cx={point.x} cy={point.y} rx="14" ry="8"
+                  key="stove-vent"></ellipse>
+}
+
+// Yome.playArea(<g>{Yome.drawStoveVent(Yome.state)}
+//                  {Yome.drawWalls(Yome.state)}</g>)
