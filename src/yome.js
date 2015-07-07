@@ -31,3 +31,6 @@ Yome.state = Yome.state || Yome.initialState();
 
 Yome.sideCount = (st) => st.sides.length
 // l(Yome.sideCount(Yome.state))
+
+Yome.sliceTheta = (st) => 2 * Math.PI / Yome.sideCount(st)
+// l(Yome.sliceTheta(Yome.state))
