@@ -1,0 +1,7 @@
+.module-cache
+node_modules/
+*.sublime-project
+*.sublime-workspace
+\#*
+\.\#*
+build/*

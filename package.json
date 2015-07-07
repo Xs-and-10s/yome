@@ -1,0 +1,25 @@
+{
+  "name": "yome",
+  "version": "1.0.0",
+  "description": "a walkthrough of Bruce Hauman's blog post \"Straightforward (Live) Functional JavaScript: Building the Yome Widget\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Xs-and-10s/yome"
+  },
+  "keywords": [
+    "yome",
+    "react",
+    "babel",
+    "javascript"
+  ],
+  "author": "Bruce Hauman (not me)",
+  "license": "cf. https://github.com/bhauman/javascript_yome_widget, or, 'Thou shalt not steal credit from a really cool dude.'",
+  "bugs": {
+    "url": "https://github.com/Xs-and-10s/yome/issues"
+  },
+  "homepage": "https://github.com/Xs-and-10s/yome"
+}
